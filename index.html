@@ -6,16 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type= "text/css" href="assets/css/style.css">
     <title>Crystals Collector Game</title>
 </head>
 <body>
 
-    <header>
-        <h1 class="text-center text-info">Collect the Crystal!</h1>
+    <header class="main">
+        <h1 class="text-center text-info display-4">Collect the Crystal!</h1>
     </header>
 
     <div class="container">
-        <div class="row text-center p-4 border bg light text-secondary font-weight-bold">
+        <div class="row text-center p-4 border bg light shadow-sm text-secondary font-weight-bold">
             <div class="col-6">
             <p>Goal Number: <span id="goalNum"></span></p>
             </div>
@@ -23,7 +24,7 @@
             <p>Your Total Score: <span id="totalSum"></span></p>
             </div>
         </div>
-        <div class="row text-center p-4 border bg light">
+        <div class="row text-center p-4 border bg light shadow-sm">
             <div class="col-3">
                 <span id="gem1"><img src="assets/images/diamond.png" alt="diamond" height="200" width="200"></span>
             </div>
@@ -37,8 +38,8 @@
                 <span id="gem4"><img src="assets/images/sapphire.png" alt="diamond" height="200" width="200"></span>
             </div>
         </div>
-        <div class="row text-center p-4 border bg light">
-            <div class="col text-info font-weight-bold">
+        <div class="row text-center p-4 border bg light shadow-sm">
+            <div class="col text-info font-weight-bold font-italic">
                 <p># of Wins: <span id="win-counter"></span></p>
                 <p># of Losses: <span id="loss-counter"></span></p>
             </div>
