@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Crystals Collector Game</title>
 </head>
 <body>
 
     <header>
-        <h1 class="text-center">Collect the Crystal!</h1>
+        <h1 class="text-center text-info">Collect the Crystal!</h1>
     </header>
 
     <div class="container">
-        <div class="row text-center p-4 border bg light">
+        <div class="row text-center p-4 border bg light text-secondary font-weight-bold">
             <div class="col-6">
             <p>Goal Number: <span id="goalNum"></span></p>
             </div>
@@ -37,7 +38,7 @@
             </div>
         </div>
         <div class="row text-center p-4 border bg light">
-            <div class="col">
+            <div class="col text-info font-weight-bold">
                 <p># of Wins: <span id="win-counter"></span></p>
                 <p># of Losses: <span id="loss-counter"></span></p>
             </div>
