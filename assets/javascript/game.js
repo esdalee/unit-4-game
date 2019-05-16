@@ -1,68 +1,65 @@
+$(document).ready(function() {
 
-// Initialize variables
-var goalNum = 0;
-var totalSum = 0;
-var winCounter = 0;
-var lossCounter = 0;
-var gem1 = 0;
-var gem2 = 0;
-var gem3 = 0;
-var gem4 = 0;
+    // Initialize variables
+    var userTotal = 0;
+    var winCounter = 0;
+    var lossCounter = 0;
+    var goalNum = randomizeNum(19, 120);
 
-startRound();
+    // Display starting numbers and counters
+    $("#goalNum").html(goalNum);
+    $("#win-counter").html(winCounter);
+    $("#loss-counter").html(lossCounter);
 
-$("#totalSum").text(totalSum);
-$("#win-counter").text(winCounter);
-$("#loss-counter").text(lossCounter);
+    // Start game
+    randomizeGem();
 
-// Randomize goal number and numbers for each gem
-function startRound () {
-    goalNum = Math.floor(Math.random() * 120) + 19;
-    $("#goalNum").text(goalNum);
-    gem1 = Math.floor(Math.random() * 12) + 1;
-    gem2 = Math.floor(Math.random() * 12) + 1;
-    gem3 = Math.floor(Math.random() * 12) + 1;
-    gem4 = Math.floor(Math.random() * 12) + 1;
-    play();
-    updateScore();
-}
+    // Functions below
 
-function play() {
-    // Click events for each gem
-    $("#gem1").on("click", function() {
-        totalSum = totalSum + gem1;
-    });
+    // Randomize numbers with range min to max
+    function randomizeNum(min, max) {
+        randomizedNum = Math.floor(Math.random() * (max-min)+1) + min;
+        return randomizedNum;
+    }
 
-    $("#gem2").on("click",function(){
-        totalSum = totalSum + gem2;
-    });
+    // Assign randomized numbers to each gem
+    function randomizeGem() {
+        var gems = ["#gem1", "#gem2", "#gem3", "#gem4"];
+        for (var i = 0; i < gems.length; i++) {
+            var gemNum = randomizeNum(1,12);
+            $(gems[i]).val(gemNum);
+        }
+    }
 
-    $("#gem3").on("click",function(){
-        totalSum = totalSum + gem3;
-    });
+    // Click handling for the gems
+    $("#gem1, #gem2m #gem3, #gem4").click(function() {
+        var num = parseInt(this.value);
+        userTotal += num;
+        $("#userTotal").html(userTotal);
 
-    $("#gem4").on("click",function(){
-        totalSum = totalSum + gem4;
-    });
-};
+        // If number is correct, update win-counter and alert user
+        if (userTotal === goalNum) {
+            winCounter = winCounter++;
+            $("#win-counter").html(winCounter);
+            alert("Bling bling! Great job, that's a win!")
+            startRound();
+        }
 
-
-function updateScore() {
-    // If number is correct, update win-counter
-    if (totalSum === goalNum) {
-        winCounter = winCounter++;
-        $("#win-counter").text(winCounter);
-        startRound();
+        // If number isn't correct, update with loss couunter and alert user
+        else if (userTotal > goalNum) {
+            lossCounter = lossCounter++;
+            $("#loss-counter").html(lossCounter);
+            alert("Booo no $ for you. Try again!")
+            startRound();
     };
 
-    // If number isn't correct, update with loss couunter
-    if (totalSum > goalNum) {
-        lossCounter = lossCounter++;
-        $("#loss-counter").text(lossCounter);
-        startRound();
-    };
-
-    $("#totalSum").text(totalSum);
-    $("#win-counter").text(winCounter);
-    $("#loss-counter").text(lossCounter);
-};
+    // Reset round
+    function startRound() {
+        userTotal = 0;
+        goalNum = randomizeNum(19, 120);
+        randomizeGem();
+        $("#goalNum").html(goalNum);
+        $("#userSum").html(userTotal);
+    }
+});
+});
