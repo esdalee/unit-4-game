@@ -59,7 +59,7 @@ $(document).ready(function() {
         goalNum = randomizeNum(19, 120);
         randomizeGem();
         $("#goalNum").html(goalNum);
-        $("#userSum").html(userTotal);
+        $("#userTotal").html(userTotal);
     }
 });
 });
