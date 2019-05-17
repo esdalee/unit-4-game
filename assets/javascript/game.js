@@ -32,14 +32,14 @@ $(document).ready(function() {
     }
 
     // Click handling for the gems
-    $("#gem1, #gem2m #gem3, #gem4").click(function() {
+    $("#gem1, #gem2, #gem3, #gem4").click(function() {
         var num = parseInt(this.value);
         userTotal += num;
         $("#userTotal").html(userTotal);
 
         // If number is correct, update win-counter and alert user
         if (userTotal === goalNum) {
-            winCounter = winCounter++;
+            winCounter += 1;
             $("#win-counter").html(winCounter);
             alert("Bling bling! Great job, that's a win!")
             startRound();
@@ -47,7 +47,7 @@ $(document).ready(function() {
 
         // If number isn't correct, update with loss couunter and alert user
         else if (userTotal > goalNum) {
-            lossCounter = lossCounter++;
+            lossCounter += 1;
             $("#loss-counter").html(lossCounter);
             alert("Booo no $ for you. Try again!")
             startRound();
